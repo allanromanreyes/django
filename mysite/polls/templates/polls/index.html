@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 
-<html>
-	<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+<html><meta charset="utf-8">
 
+  <head>
+    <title>Django Test</title>
+  </head>
+
+  <body><p>Test page</p>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_Question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+  </body>
+  
+</html>
